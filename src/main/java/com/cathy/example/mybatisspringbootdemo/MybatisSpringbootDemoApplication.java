@@ -12,15 +12,15 @@ public class MybatisSpringbootDemoApplication {
         SpringApplication.run(MybatisSpringbootDemoApplication.class, args);
     }
 
-    private final CityMapper cityMapper;
+    private final UsersMapper usersMapper;
 
-    public MybatisSpringbootDemoApplication(CityMapper cityMapper) {
-        this.cityMapper = cityMapper;
+    public MybatisSpringbootDemoApplication(UsersMapper usersMapper) {
+        this.usersMapper = usersMapper;
     }
 
     @Bean
     CommandLineRunner sampleCommandLineRunner() {
-        return (args) -> System.out.println(this.cityMapper.findByState("CA"));
+        return (args) -> System.out.println(this.usersMapper.selectByPrimaryKey(1));
     }
 
 }
